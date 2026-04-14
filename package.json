@@ -1,5 +1,5 @@
 {
-  "name": "tutor-hub-vercel",
+  "name": "tutor-hub-management",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",

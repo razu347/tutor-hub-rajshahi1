@@ -6,7 +6,6 @@ export default function Home({ students }) {
   const [filterClass, setFilterClass] = useState('All');
   const [filteredStudents, setFilteredStudents] = useState(students);
 
-  // সার্চ এবং ফিল্টারিং লজিক
   useEffect(() => {
     const results = students.filter(student => {
       const matchesSearch = student.school.toLowerCase().includes(searchTerm.toLowerCase());
@@ -16,25 +15,25 @@ export default function Home({ students }) {
     setFilteredStudents(results);
   }, [searchTerm, filterClass, students]);
 
-  // ড্রপডাউনের জন্য ইউনিক ক্লাস লিস্ট বের করা
   const classes = ['All', ...new Set(students.map(s => s.studentClass).filter(Boolean))].sort((a, b) => a - b);
 
   return (
     <div className="container">
       <Head>
-      <title>Tutor Hub</title>
-  {/* এখানে আপনার Vercel ডোমেইনটি হুবহু বসাবেন */}
-  <meta property="og:image" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" />
-  <meta property="og:image:secure_url" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="1200" />
-  
-  {/* WhatsApp স্পেসিফিক থাম্বনেইল নিশ্চিত করতে */}
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="1200" />
+        <title>Tutor Hub - Student Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        {/* Google Fonts */}
+        {/* CRITICAL: Link Preview Meta Tags */}
+        <meta property="og:title" content="Tutor Hub" />
+        <meta property="og:description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
+        {/* নিচের লিঙ্কে আপনার Vercel ডোমেইনটি বসিয়ে দেবেন */}
+        <meta property="og:image" content="https://tutor-hub-rajshahi1.vercel.app/banner.jpeg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tutor-hub-rajshahi1.vercel.app" />
+
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet" />
       </Head>
 
@@ -43,27 +42,27 @@ export default function Home({ students }) {
         <p>All Student Management</p>
       </header>
 
-      <div className="controls">
-        <input 
-          type="text" 
-          placeholder="🔍 Search by School..." 
-          className="search-input"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <select className="filter-select" onChange={(e) => setFilterClass(e.target.value)}>
-          {classes.map(cls => (
-            <option key={cls} value={cls}>
-              {cls === 'All' ? 'All Classes' : `Class ${cls}`}
-            </option>
-          ))}
-        </select>
+      <div className="search-section">
+        <div className="controls">
+          <input 
+            type="text" 
+            placeholder="🔍 Search by School..." 
+            className="search-bar"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <select className="class-filter" onChange={(e) => setFilterClass(e.target.value)}>
+            {classes.map(cls => (
+              <option key={cls} value={cls}>{cls === 'All' ? 'Select Class' : `Class ${cls}`}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <main className="grid">
-        {filteredStudents.length > 0 ? filteredStudents.map((student, index) => {
-          
-          // আপনার দেওয়া পূর্ণাঙ্গ হোয়াটসঅ্যাপ মেসেজ টেমপ্লেট
-          const waMessage = `প্রিয় ${student.name}, Tutor Hub এর পক্ষ থেকে শুভেচ্ছা রইলো। আমরা আপনার শহর রাজশাহীতে RU, Medical, RUET, Rajshahi College এর স্টুডেন্টদের সমন্বয়ে টিউটর সেবা প্রদান করছি।
+        {filteredStudents.map((student, index) => {
+          const waMessage = `প্রিয় ${student.name}, 
+
+Tutor Hub এর পক্ষ থেকে শুভেচ্ছা রইলো। আমরা আপনার শহর রাজশাহীতে RU, Medical, RUET, Rajshahi College এর স্টুডেন্টদের সমন্বয়ে টিউটর সেবা প্রদান করছি।
 
 আমাদের সার্ভিস সমূহ:
 ১. প্লে থেকে দ্বাদশ শ্রেণি পর্যন্ত একাডেমিক কার্যক্রম।
@@ -80,147 +79,76 @@ Facebook: www.facebook.com/TutorHubRajshahi
 Mobile: 01611-305692`;
 
           const encodedMsg = encodeURIComponent(waMessage);
-          const cleanNumber = student.number.replace(/[^0-9]/g, '');
-          const waNumber = cleanNumber.startsWith('0') ? `88${cleanNumber}` : cleanNumber;
+          const cleanPhone = student.number.replace(/[^0-9]/g, '');
+          const waPhone = cleanPhone.startsWith('0') ? `88${cleanPhone}` : cleanPhone;
 
           return (
             <div className="card" key={index}>
-              <div className="card-body">
-                <h3>{student.name}</h3>
-                <div className="info">
-                  <p><strong>School:</strong> {student.school}</p>
-                  <p><strong>Class:</strong> {student.studentClass}</p>
-                  <p><strong>Mobile:</strong> {student.number}</p>
-                </div>
+              <h3>{student.name}</h3>
+              <div className="details">
+                <p><strong>School:</strong> {student.school}</p>
+                <p><strong>Class:</strong> {student.studentClass}</p>
+                <p><strong>Mobile:</strong> {student.number}</p>
               </div>
-              <div className="btn-group">
-                <a href={`tel:${student.number}`} className="btn btn-call">📞 Call Now</a>
-                <a href={`https://wa.me/${waNumber}?text=${encodedMsg}`} target="_blank" rel="noreferrer" className="btn btn-wa">💬 WhatsApp</a>
+              <div className="actions">
+                <a href={`tel:${student.number}`} className="btn call-btn">📞 Call</a>
+                <a href={`https://wa.me/${waPhone}?text=${encodedMsg}`} target="_blank" rel="noreferrer" className="btn wa-btn">💬 SMS</a>
               </div>
             </div>
           );
-        }) : <p className="no-results">No students found!</p>}
+        })}
       </main>
 
       <style jsx global>{`
-        body { 
-          font-family: 'Hind Siliguri', sans-serif; 
-          background: #fdf2e9; 
-          margin: 0; 
-          color: #333;
-        }
-        header { 
-          background: #FF8C00; 
-          color: white; 
-          text-align: center; 
-          padding: 50px 20px; 
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-        }
-        h1 { 
-          font-family: 'Bree Serif', serif; 
-          margin: 0; 
-          font-size: 3.5rem; 
-          letter-spacing: 1px;
-        }
-        header p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
+        body { font-family: 'Hind Siliguri', sans-serif; margin: 0; background-color: #FFF5E6; color: #333; }
+        header { background: #FF8C00; color: white; text-align: center; padding: 60px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { font-family: 'Bree Serif', serif; font-size: 3.5rem; margin: 0; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
         
-        .container { max-width: 1200px; margin: auto; }
+        .search-section { display: flex; justify-content: center; margin-top: -35px; padding: 0 20px; }
+        .controls { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); display: flex; gap: 15px; width: 100%; max-width: 800px; flex-wrap: wrap; }
+        .search-bar, .class-filter { flex: 1; padding: 12px 15px; border: 2px solid #FFE0B3; border-radius: 8px; font-size: 1rem; outline: none; transition: 0.3s; font-family: 'Hind Siliguri'; min-width: 200px; }
+        .search-bar:focus { border-color: #FF8C00; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 18px; border-left: 6px solid #FF8C00; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        h3 { font-family: 'Bree Serif', serif; margin: 0 0 15px 0; color: #E67E00; font-size: 1.5rem; }
+        .details p { margin: 8px 0; font-size: 0.95rem; }
         
-        .controls { 
-          display: flex; 
-          gap: 15px; 
-          padding: 30px 20px; 
-          flex-wrap: wrap; 
-          justify-content: center; 
-          margin-top: -30px;
-        }
-        .search-input, .filter-select { 
-          padding: 15px; 
-          border-radius: 10px; 
-          border: none; 
-          width: 320px; 
-          font-family: 'Hind Siliguri';
-          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-          font-size: 1rem;
-        }
-        
-        .grid { 
-          display: grid; 
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-          gap: 25px; 
-          padding: 20px; 
-        }
-        
-        .card { 
-          background: white; 
-          border-radius: 15px; 
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.3s ease;
-          border-bottom: 5px solid #FF8C00;
-          box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-        }
-        .card:hover { transform: translateY(-8px); }
-        .card-body { padding: 25px; flex-grow: 1; }
-        
-        h3 { 
-          font-family: 'Bree Serif', serif; 
-          color: #FF8C00; 
-          margin: 0 0 15px 0; 
-          font-size: 1.6rem; 
-        }
-        .info p { margin: 8px 0; font-size: 1rem; color: #555; }
-        
-        .btn-group { display: flex; padding: 15px; gap: 10px; background: #fafafa; }
-        .btn { 
-          flex: 1; 
-          text-align: center; 
-          padding: 12px; 
-          border-radius: 8px; 
-          text-decoration: none; 
-          color: white; 
-          font-weight: 600; 
-          font-size: 0.9rem;
-          transition: opacity 0.2s;
-        }
-        .btn:hover { opacity: 0.85; }
-        .btn-call { background: #28a745; }
-        .btn-wa { background: #25D366; }
-        
-        .no-results { text-align: center; grid-column: 1/-1; font-size: 1.2rem; color: #888; margin-top: 50px; }
+        .actions { display: flex; gap: 10px; margin-top: 25px; }
+        .btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; color: white; font-size: 0.9rem; transition: 0.2s; }
+        .call-btn { background-color: #28a745; }
+        .wa-btn { background-color: #25D366; }
+        .btn:hover { opacity: 0.85; transform: scale(1.02); }
 
         @media (max-width: 600px) {
           h1 { font-size: 2.5rem; }
-          .search-input, .filter-select { width: 100%; }
+          .controls { flex-direction: column; }
         }
       `}</style>
     </div>
   );
 }
 
-// Google Sheet থেকে ডেটা ফেচ করার অংশ
 export async function getServerSideProps() {
   const sheetId = "1ojX3FtBGyS_gCxGBEoeV2X6x7SjZLowFB8rjiH3ygqI";
-  // 'Tutor Hub' শিটের নাম ব্যবহার করা হয়েছে
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=Tutor Hub`;
   
   try {
     const res = await fetch(url);
     const text = await res.text();
-    // Google Visualization API এর JSON থেকে ডেটা ক্লিন করা
     const json = JSON.parse(text.substring(47, text.length - 2));
     
     const students = json.table.rows.map(row => ({
-      name: row.c[1]?.v || 'Unknown',
-      school: row.c[2]?.v || 'Not Specified',
+      name: row.c[1]?.v || 'N/A',
+      school: row.c[2]?.v || 'N/A',
       number: row.c[3]?.v?.toString() || '',
       studentClass: row.c[4]?.v?.toString() || 'N/A',
     }));
 
     return { props: { students } };
   } catch (error) {
-    console.error("Error fetching sheet data:", error);
     return { props: { students: [] } };
   }
 }
