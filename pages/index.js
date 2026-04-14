@@ -28,7 +28,7 @@ export default function Home({ students }) {
         {/* Link Preview (WhatsApp Card) Meta Tags */}
         <meta property="og:title" content="Tutor Hub" />
         <meta property="og:description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
-        <meta property="og:image" content="https://www.facebook.com/share/1KWuDheYud/" /> 
+        <meta property="og:image" content="https://ibb.co.com/tTVq66Vk" /> 
         <meta property="og:type" content="website" />
         
         {/* Google Fonts */}
@@ -73,7 +73,6 @@ export default function Home({ students }) {
 ৮. বাসায় গিয়ে যত্ন সহকারে পড়ানো হয়।
 
 যোগাযোগ: 
-
 Facebook: www.facebook.com/TutorHubRajshahi
 Mobile: 01611-305692`;
 
