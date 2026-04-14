@@ -22,18 +22,13 @@ export default function Home({ students }) {
   return (
     <div className="container">
       <Head>
-        <title>Tutor Hub</title>
-  <meta name="description" content="রাজশাহীতে RU, RUET, Medical ও RC শিক্ষার্থীদের মাধ্যমে সেরা টিউটর সেবা।" />
-  
-  {/* Link Preview (Open Graph) Meta Tags */}
-  <meta property="og:title" content="Tutor Hub - Student Management" />
-  <meta property="og:description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
-  
-  {/* এখানে আপনার আপলোড করা ছবির ডিরেক্ট লিঙ্ক দিন */}
-  <meta property="og:image" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" /> 
-  
-  <meta property="og:url" content="https://tutor-hub-rajshahi.vercel.app" />
-  <meta property="og:type" content="website" />
+      <title>Tutor Hub</title>
+  {/* এখানে আপনার Vercel ডোমেইনটি হুবহু বসাবেন */}
+  <meta property="og:image" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" />
+  <meta property="og:image:secure_url" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
   
   {/* WhatsApp স্পেসিফিক থাম্বনেইল নিশ্চিত করতে */}
   <meta property="og:image:width" content="1200" />
