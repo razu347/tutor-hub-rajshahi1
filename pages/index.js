@@ -30,14 +30,14 @@ export default function Home({ students }) {
   <meta property="og:description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
   
   {/* এখানে আপনার আপলোড করা ছবির ডিরেক্ট লিঙ্ক দিন */}
-  <meta property="og:image" content="https://ibb.co.com/tTVq66Vk" /> 
+  <meta property="og:image" content="https://tutor-hub-rajshahi.vercel.app/banner.jpeg" /> 
   
   <meta property="og:url" content="https://tutor-hub-rajshahi.vercel.app" />
   <meta property="og:type" content="website" />
   
   {/* WhatsApp স্পেসিফিক থাম্বনেইল নিশ্চিত করতে */}
   <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:height" content="1200" />
         
         {/* Google Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet" />
