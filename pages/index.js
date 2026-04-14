@@ -24,17 +24,30 @@ export default function Home({ students }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* CRITICAL: Link Preview Meta Tags */}
-        <meta property="og:title" content="Tutor Hub" />
-        <meta property="og:description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
-        {/* নিচের লিঙ্কে আপনার Vercel ডোমেইনটি বসিয়ে দেবেন */}
-        <meta property="og:image" content="https://tutor-hub-rajshahi1.vercel.app/banner.jpeg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="1200" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tutor-hub-rajshahi1.vercel.app" />
+ 
+  <title>Tutor Hub - Student Management</title>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="রাজশাহীতে দক্ষ ও অভিজ্ঞ টিউটর খুঁজে পেতে আমাদের এই প্ল্যাটফর্মটি ব্যবহার করুন।" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet" />
+  {/* CRITICAL: Link Preview Meta Tags */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tutor-hub-rajshahi1.vercel.app" />
+  <meta property="og:title" content="Tutor Hub" />
+  <meta property="og:description" content="RU, RUET ও মেডিকেল শিক্ষার্থীদের মাধ্যমে সেরা টিউটর সেবা।" />
+  
+  {/* Image URL with standard aspect ratio */}
+  <meta property="og:image" content="https://tutor-hub-rajshahi1.vercel.app/banner.jpeg" />
+  <meta property="og:image:secure_url" content="https://tutor-hub-rajshahi1.vercel.app/banner.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  {/* WhatsApp/Telegram Specific */}
+  <meta property="og:site_name" content="Tutor Hub Rajshahi" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet" />
+
       </Head>
 
       <header>
