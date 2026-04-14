@@ -73,7 +73,7 @@ export default function Home({ students }) {
 ৮. বাসায় গিয়ে যত্ন সহকারে পড়ানো হয়।
 
 যোগাযোগ: 
-Website: https://tutorhubraj.blogspot.com/
+
 Facebook: www.facebook.com/TutorHubRajshahi
 Mobile: 01611-305692`;
 
