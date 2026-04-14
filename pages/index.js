@@ -73,10 +73,10 @@ export default function Home({ students }) {
 
       <main className="grid">
         {filteredStudents.map((student, index) => {
-          const waMessage = `প্রিয় ${student.name}, 
+          const waMessage = `
+          প্রিয় ${student.name}, 
 
 Tutor Hub এর পক্ষ থেকে শুভেচ্ছা রইলো। আমরা আপনার শহর রাজশাহীতে RU, Medical, RUET, Rajshahi College এর স্টুডেন্টদের সমন্বয়ে টিউটর সেবা প্রদান করছি।
-https://ibb.co.com/tTVq66Vk
 
 আমাদের সার্ভিস সমূহ:
 ১. প্লে থেকে দ্বাদশ শ্রেণি পর্যন্ত একাডেমিক কার্যক্রম।
@@ -89,6 +89,7 @@ https://ibb.co.com/tTVq66Vk
 ৮. বাসায় গিয়ে যত্ন সহকারে পড়ানো হয়।
 
 যোগাযোগ: 
+Website:https://tutorhubraj.blogspot.com/2026/04/tutor-hub.html
 Facebook: www.facebook.com/TutorHubRajshahi
 Mobile: 01611-305692`;
 
